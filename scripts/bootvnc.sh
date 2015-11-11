@@ -15,7 +15,7 @@ function terminateProcesses(){
 }
 
 function startVncServer() {
-	sed -i 's$"startup_urls" : \[ "[^"]*"$"startup_urls" : \[ "'${URL}'/get-task"$'  ~/.config/google-chrome/Default/Preferences
+	sed -i 's$"startup_urls" : \[ "[^"]*"$"startup_urls" : \[ "'${URL}'/get-task?containerId='$(hostname)'"$'  ~/.config/google-chrome/Default/Preferences
 	USER=root
 	HOME=/root
 	export USER HOME
