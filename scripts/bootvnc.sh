@@ -15,7 +15,8 @@ function terminateProcesses(){
 }
 
 function startVncServer() {
-	sed -i 's$"startup_urls" : \[ "[^"]*"$"startup_urls" : \[ "'${URL}'/get-task?workerId='$(hostname)'"$'  ~/.config/google-chrome/Default/Preferences
+	URL="$(echo "${URL}" | sed 's/\&/\\&/g')" # escape & for use in sed substitution directive
+	cat ~/.config/google-chrome/Default/Preferences.in | sed "s<__STARTUP_URL__<${URL}/get-task?workerId=$(hostname)<" > ~/.config/google-chrome/Default/Preferences
 	USER=root
 	HOME=/root
 	export USER HOME
