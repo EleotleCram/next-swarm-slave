@@ -12,6 +12,7 @@ set -x
 function terminateProcesses(){
 	kill $( ps auxww | grep -i Xtightvnc | grep -v grep | awk '{print $2}') 2> /dev/null || true
 	kill $( ps auxww | grep -i google-chrome | grep -v grep | awk '{print $2}') 2> /dev/null || true
+	sleep 5
 }
 
 function startVncServer() {
