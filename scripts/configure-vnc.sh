@@ -10,7 +10,7 @@ cat > ${VNC_DIR}/xstartup <<EOF
 xrdb \$HOME/.Xresources
 xsetroot -solid grey
 touch "/root/.config/google-chrome/First Run"
-sleep 3 && google-chrome -start-maximized --user-data-dir=/root/.config/google-chrome &
+sleep 3 && google-chrome -start-maximized --no-sandbox --user-data-dir=/root/.config/google-chrome &
 
 export XKL_XMODMAP_DISABLE=1
 /etc/X11/Xsession
